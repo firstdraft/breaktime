@@ -1,2 +1,15 @@
-<h1>Breaks#new</h1>
-<p>Find me in app/views/breaks/new.html.erb</p>
+<%= form_with url: countdown_path, method: :get do |f| %>
+  <div>
+    <%= f.label :break_length %>
+    <%= f.number_field :break_length, value: 15 %>
+  </div>
+
+  <div>
+    <%= f.label :round_up, "Round up?" %>
+    <%= f.check_box :round_up, checked: true %>
+  </div>
+
+  <div>
+    <%= f.submit "Start timer" %>
+  </div>
+<% end %>
