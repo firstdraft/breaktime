@@ -11,6 +11,11 @@
         <%= f.label :round_up, "Round up?", class: "form-check-label" %>
       </div>
 
+      <div class="mb-3">
+        <%= f.label :time_zone, class: "form-label" %>
+        <%= f.time_zone_select :time_zone, nil, { default: "Central Time (US & Canada)" }, class: "form-control" %>
+      </div>
+
       <div class="d-grid">
         <%= f.submit "Start timer", class: "btn btn-primary" %>
       </div>
