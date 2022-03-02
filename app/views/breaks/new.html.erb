@@ -1,15 +1,19 @@
-<%= form_with url: countdown_path, method: :get do |f| %>
-  <div>
-    <%= f.label :break_length %>
-    <%= f.number_field :break_length, value: 15 %>
-  </div>
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <%= form_with url: countdown_path, method: :get do |f| %>
+      <div class="mb-3">
+        <%= f.label :break_length, class: "form-label" %>
+        <%= f.number_field :break_length, value: 15, class: "form-control" %>
+      </div>
 
-  <div>
-    <%= f.label :round_up, "Round up?" %>
-    <%= f.check_box :round_up, checked: true %>
-  </div>
+      <div class="mb-3 form-check">
+        <%= f.check_box :round_up, checked: true, class: "form-check-input" %>
+        <%= f.label :round_up, "Round up?", class: "form-check-label" %>
+      </div>
 
-  <div>
-    <%= f.submit "Start timer" %>
+      <div class="d-grid">
+        <%= f.submit "Start timer", class: "btn btn-primary" %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
