@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "breaks#new"
+  root "breaks#countdown"
 
-  get "countdown" => "breaks#countdown"
+  get "new" => "breaks#new"
 end

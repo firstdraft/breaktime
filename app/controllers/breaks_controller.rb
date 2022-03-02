@@ -3,12 +3,16 @@ class BreaksController < ApplicationController
   end
 
   def countdown
-    Time.use_zone(params[:time_zone]) do
-      @min_break_length = params[:break_length].to_i
+    @time_zone = params[:time_zone] || "Central Time (US & Canada)"
+
+    Time.use_zone(@time_zone) do
+      @min_break_length = (params[:break_length] ? params[:break_length].to_i : nil) || 15
 
       @break_started_at = Time.current
 
-      if params[:round_up] == "1"
+      @round_up = (params[:round_up] || "1") == "1"
+
+      if @round_up
         @distance_to_next_five = (5 - (@break_started_at.min % 5))
 
         @distance_to_next_five = @distance_to_next_five == 5 ? 0 : @distance_to_next_five
